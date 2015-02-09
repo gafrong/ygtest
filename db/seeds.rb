@@ -10,7 +10,7 @@ parsed.each do |product|
   new_product.name = product["name"]
   new_product.image = product["image"]
   new_product.price = product["price"]
-  new_product.retailer = product["retailer"]
+  new_product.retailer = product["retailer"].to_s
   if new_product.retailer == "YourGrocer"
     new_product.retailer_id = 1
   elsif new_product.retailer == "Rustica Sourdough Bakery"
