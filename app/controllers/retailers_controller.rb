@@ -7,7 +7,7 @@ class RetailersController < ApplicationController
 
   def show
     @retailer = Retailer.find(params[:id])
-    @products = Product.where(retailer_id: params[:id]).page(params[:page])
+    @products = Product.where(retailer_id: params[:id]).page params[:page]
   end
 
 end

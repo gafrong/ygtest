@@ -1,3 +1,12 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'pry'
+
 parsed = JSON.parse(File.read("db/products.json"))
 
 Product.destroy_all
@@ -10,22 +19,24 @@ parsed.each do |product|
   new_product.name = product["name"]
   new_product.image = product["image"]
   new_product.price = product["price"]
-  new_product.retailer = product["retailer"]
-  if new_product.retailer.name == "YourGrocer"
+
+  new_product.retailername = product["retailer"]
+
+  if new_product.retailername == "YourGrocer"
     new_product.retailer_id = 1
-  elsif new_product.retailer.name == "Rustica Sourdough Bakery"
+  elsif new_product.retailername == "Rustica Sourdough Bakery"
     new_product.retailer_id = 2
-  elsif new_product.retailer.name == "North Carlton Quality Meats"
+  elsif new_product.retailername == "North Carlton Quality Meats"
     new_product.retailer_id = 3
-  elsif new_product.retailer.name == "Melba's Food Hall"
+  elsif new_product.retailername == "Melba's Food Hall"
     new_product.retailer_id = 4
-  elsif new_product.retailer.name == "La Manna Fresh"
+  elsif new_product.retailername == "La Manna Fresh"
     new_product.retailer_id = 5
-  elsif new_product.retailer.name == "Organics by La Manna Fresh"
+  elsif new_product.retailername == "Organics by La Manna Fresh"
     new_product.retailer_id = 6
-  elsif new_product.retailer.name == "Taranto's Balwyn Fruit Supply"
+  elsif new_product.retailername == "Taranto's Balwyn Fruit Supply"
     new_product.retailer_id = 7
-  elsif new_product.retailer.name == "Kandi's Balwyn Heights Fruit Supply"
+  elsif new_product.retailername == "Kandi's Balwyn Heights Fruit Supply"
     new_product.retailer_id = 8
   end      
       
@@ -34,7 +45,7 @@ parsed.each do |product|
 end
 
 all_retailers = Product.select(:retailer).distinct
-all_retailers.each do |retail|
+all_retailers.count.times do |retail|
   new_retailer = Retailer.new
   new_retailer.name = all_retailers[retail].retailer
 
