@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20150209232327) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price"
+    t.string   "retailer"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "image"
     t.integer  "retailer_id"
-    t.text     "retailer"
     t.string   "retailername"
   end
 
