@@ -34,7 +34,7 @@ parsed.each do |product|
 end
 
 all_retailers = Product.select(:retailer).distinct
-all_retailers.count.times do |retail|
+all_retailers.each do |retail|
   new_retailer = Retailer.new
   new_retailer.name = all_retailers[retail].retailer
 
