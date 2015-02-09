@@ -7,7 +7,6 @@ class PagesController < ApplicationController
 
   def show
     @retailers = Retailer.all
-    # @products = Product.where(name: params[:name])
   end
 
 end
