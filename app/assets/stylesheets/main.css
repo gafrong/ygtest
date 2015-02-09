@@ -1,0 +1,34 @@
+.img {
+  padding-top: 0.5em;
+  width : 9em;
+  height: 15em;
+}
+.product-img {
+  width     : 5em;
+  min-height: 5em;
+}
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+.row {
+  display: inline-block;
+}
+.subnav {
+  min-height: 3em;
+}
+.row .thumbnail {
+  border    : 0;
+  box-shadow: 1px 1px 1px #e5e5e5;
+  margin    : 0.5em;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.retail {
+  margin: 0.3em;
+}

@@ -1,0 +1,21 @@
+<h3 class="center"><%= @retailer.name %></h3>
+<br>
+<% @products.each do |item| %>
+    <div class="row center">
+      <div class="col-sm-6 col-mg-4">
+        <div class="thumbnail img">
+          <img src="<%= item.image %>" class="product-img">        
+          <div class="caption">
+          <p><%= item.name %></p> 
+          <p>$<%= item.price %></p>
+          </div>          
+        </div> 
+      </div>
+    </div>
+      
+  <% end %>
+
+
+  <div class="paginating center">
+    <%= paginate @products %>
+  </div>
